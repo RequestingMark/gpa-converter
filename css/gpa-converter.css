@@ -1,0 +1,52 @@
+.gpa-converter {
+	max-width: 300px;
+	box-sizing: border-box;
+}
+
+.gpa-converter * {
+	box-sizing: border-box;
+}
+
+.gpa-converter__current-gpa {
+	margin: 5px;
+	padding: 5px;
+}
+
+.gpa-converter__current-scale {
+	margin: 5px;
+	padding: 5px;
+}
+
+.gpa-converter__calculated-container {
+	padding: .5rem;
+}
+
+.gpa-converter__calculated-gpa {
+	display: inline-block;
+	margin: auto;
+	min-width: 3rem;
+	min-height: 2.5rem;
+	border-bottom: 1px solid #000;
+	font-size: 2rem;
+	line-height: 2.5rem;
+}
+
+.gpa-converter__submit {
+	padding: 10px 15px;
+}
+
+/* LAYOUT: Verticle */
+
+.gpa-converter--verticle {
+	text-align: center;
+}
+
+.gpa-converter--verticle .gpa-converter__current-gpa {
+	display: block;
+	width: 100%;
+}
+
+.gpa-converter--verticle .gpa-converter__current-scale {
+	display: block;
+	width: 100%;
+}
