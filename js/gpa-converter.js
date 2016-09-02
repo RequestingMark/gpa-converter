@@ -31,7 +31,7 @@
 				//DEFAULTS
 				convert_to_scale: null,
 				layout: 'verticle',
-				template: "default"
+				theme: "card"
 			}, options);
 			
 			initConverter();
@@ -39,10 +39,12 @@
 		
 		// FUNCTION: Initialize Converter
 		var initConverter = function() {
-			$(plugin.el).addClass('gpa-converter gpa-converter--' + plugin.settings.layout + ' gpa-converter--default');
+			$(plugin.el).addClass('gpa-converter gpa-converter--' + plugin.settings.layout + ' gpa-converter--' + plugin.settings.theme);
 
 			plugin.el.form = $('<form class="gpa-converter__form""></form>');
+			plugin.el.currentGpaLabel = $('<label class="gpa-converter__current-gpa-label">Current GPA</label>');
 			plugin.el.currentGpa = $('<input class="gpa-converter__current-gpa" type="text" placeholder="Current GPA" autofocus />');
+			plugin.el.currentScaleLabel = $('<label class="gpa-converter__current-scale-label">Current Scale</label>');
 			plugin.el.currentScale = $('<select class="gpa-converter__current-scale"><option value="" selected disabled>Current Scale</option></select>');
 			plugin.el.scaleOptions = $('<option value="3" selected="selected">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>');
 			plugin.el.calculatedContainer = $('<div class="gpa-converter__calculated-container"></div>');
@@ -52,9 +54,13 @@
 
 			$(plugin.el)
 				.append(plugin.el.form
-					.append(plugin.el.currentGpa)
-					.append(plugin.el.currentScale
-						.append(plugin.el.scaleOptions)
+					.append(plugin.el.currentGpaLabel
+						.append(plugin.el.currentGpa)
+					)
+					.append(plugin.el.currentScaleLabel
+						.append(plugin.el.currentScale
+							.append(plugin.el.scaleOptions)
+						)
 					)
 					.append(plugin.el.calculatedContainer
 						.append(plugin.el.calculatedGpa)

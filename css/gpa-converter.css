@@ -7,13 +7,23 @@
 	box-sizing: border-box;
 }
 
+.gpa-converter__current-gpa-label {
+	display: block;
+	padding: 5px;
+	text-align: left;
+}
+
 .gpa-converter__current-gpa {
-	margin: 5px;
 	padding: 5px;
 }
 
+.gpa-converter__current-scale-label {
+	display: block;
+	padding: 5px;
+	text-align: left;
+}
+
 .gpa-converter__current-scale {
-	margin: 5px;
 	padding: 5px;
 }
 
@@ -41,12 +51,58 @@
 	text-align: center;
 }
 
+.gpa-converter--verticle .gpa-converter__current-gpa-label {
+	padding: 10px 0px;
+}
+
 .gpa-converter--verticle .gpa-converter__current-gpa {
 	display: block;
 	width: 100%;
 }
 
+.gpa-converter--verticle .gpa-converter__current-scale-label {
+	padding: 10px 0px;
+}
+
 .gpa-converter--verticle .gpa-converter__current-scale {
 	display: block;
 	width: 100%;
+}
+
+/* LAYOUT: Horizontal */
+
+.gpa-converter--horizontal {
+
+}
+
+/* THEME: Card */
+
+.gpa-converter--card {
+	padding: 15px;
+	background: #fff;
+	-webkit-box-shadow: 0px 0px 15px 0px rgba(170,170,170,1);
+	-moz-box-shadow: 0px 0px 15px 0px rgba(170,170,170,1);
+	box-shadow: 0px 0px 15px 0px rgba(170,170,170,1);
+}
+
+.gpa-converter--card .gpa-converter__current-gpa {
+	background: #eee;
+}
+
+.gpa-converter--card .gpa-converter__current-gpa:focus {
+	background: #fff;
+}
+
+.gpa-converter--card .gpa-converter__current-scale {
+	background: #eee;
+}
+
+.gpa-converter--card .gpa-converter__current-scale:focus {
+	background: #fff;
+}
+
+.gpa-converter--card .gpa-converter__submit {
+	padding: 5px 25px;
+	font-weight: bold;
+	background: #ddd;
 }
