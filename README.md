@@ -21,3 +21,6 @@ finally add the following right before your closing </body> tag
 
 ### Options
 to be added
+
+### Possible Future Additions
+-add ability to convert to other GPA scales
