@@ -44,6 +44,7 @@
 			plugin.el.form = $('<form class="gpa-converter__form""></form>');
 			plugin.el.currentGpa = $('<input class="gpa-converter__current-gpa" type="text" placeholder="Current GPA" autofocus />');
 			plugin.el.currentScale = $('<select class="gpa-converter__current-scale"><option value="" selected disabled>Current Scale</option></select>');
+			plugin.el.scaleOptions = $('<option value="3" selected="selected">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>');
 			plugin.el.calculatedContainer = $('<div class="gpa-converter__calculated-container"></div>');
 			plugin.el.calculatedGpa = $('<span class="gpa-converter__calculated-gpa"></span>');
 			plugin.el.submitContainer = $('<div class="gpa-converter__submit-container"></div>');
@@ -52,7 +53,9 @@
 			$(plugin.el)
 				.append(plugin.el.form
 					.append(plugin.el.currentGpa)
-					.append(plugin.el.currentScale)
+					.append(plugin.el.currentScale
+						.append(plugin.el.scaleOptions)
+					)
 					.append(plugin.el.calculatedContainer
 						.append(plugin.el.calculatedGpa)
 					)
@@ -73,12 +76,19 @@
 
 		// FUNCTION: Calculate GPA
 		var calcGpa = function() {
-			$('.gpa-converter__calculated-gpa').html(plugin.el.currentGpa.val());
+			var temp;
+
+		    temp = eval(plugin.el.currentGpa.val())/(eval(plugin.el.currentScale.val()));
+		    temp = parseFloat(Math.round((temp * 4) * 100) / 100).toFixed(2);
+
+		    $('.gpa-converter__calculated-gpa').html(temp);
 		};
 
 		// FUNCTION: Check Form for Errors
 		var checkForm = function() {
-			if ((plugin.el.currentGpa.val() == null || plugin.el.currentGpa.val() == 0)) {
+			$('.gpa-converter__error').remove();
+
+			if ((plugin.el.currentGpa.val() == null || plugin.el.currentGpa.val() == 0 || plugin.el.currentGpa.val() < 0 || plugin.el.currentGpa.val() > plugin.el.currentScale.val())) {
 		    	initError('Invalid Entry', 'You have entered an invalid number. Please try again.');
 		    	return;
 		    }
